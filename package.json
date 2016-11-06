@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/kamrade/react-weather#readme",
   "dependencies": {
+    "axios": "^0.15.2",
     "express": "^4.14.0",
     "jade": "^1.11.0",
     "react": "^15.3.2",
