@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 // var Route = require('react-router').Route;
-var { Router, Route, IndexRoute, Link, Navigation, browserHistory, hashHistory } =require('react-router');
+var { Router, Route, IndexRoute, Link, Navigation, browserHistory, hashHistory } = require('react-router');
 var Main = require('Main');
 var Weather = require('Weather');
 var About = require('About');

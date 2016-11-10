@@ -19,7 +19,7 @@ module.exports = {
 			WeatherMessage:  'app/components/WeatherMessage.jsx',
 			About:  'app/components/About.jsx',
 			Examples:  'app/components/Examples.jsx',
-			openWeatherMap: 'app/api/openWeather.jsx'
+			openWeather: 'app/api/openWeather.jsx'
 		},
 		extensions: ['.js', '', '.jsx']
 	},
@@ -27,7 +27,7 @@ module.exports = {
 	watchOptions: {
 		aggregateTimeout: 100
 	},
-	devtool: NODE_ENV == 'development' ? 'cheap-inline-module-source-map' : null,
+	devtool: NODE_ENV == 'development' ? 'inline-source-map' : null,
 	plugins: [
 		new webpack.DefinePlugin({
 			NODE_ENV: JSON.stringify(NODE_ENV),

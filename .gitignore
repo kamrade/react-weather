@@ -59,3 +59,4 @@ doc/
 .idea
 .secret
 public/lib
+./public/bundle.js
