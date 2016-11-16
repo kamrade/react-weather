@@ -1,8 +1,16 @@
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
+app.use(function(req, res, next) {
+	if(req.headers['x-forwarded-proto'] === 'http') {
+		next();
+	} else {
+		res.redirect('http://' + req.hostname + req.url);
+	}
+});
 app.use(express.static('public'));
+
 app.set('views', './public/views');
 app.set('view engine', 'jade');
 
@@ -12,6 +20,6 @@ app.get('/', function(req, res) {
 	});
 });
 
-app.listen(3000, function() {
+app.listen(port, function() {
 	console.log('express server is up on port ' + port);
 });
