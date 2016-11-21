@@ -3,6 +3,8 @@ var WeatherForm = require('WeatherForm');
 var WeatherMessage = require('WeatherMessage');
 var openWeatherMap = require('openWeather');
 
+
+
 var Weather = React.createClass({
 	getInitialState: function() {
 		return {
@@ -21,6 +23,7 @@ var Weather = React.createClass({
 			});
 		}, function(errorMessage) {
 			that.setState({ isLoading: false });
+			// here should be modal in tutorial
 			console.log(errorMessage);
 		});
 	},
@@ -37,7 +40,7 @@ var Weather = React.createClass({
 
 		return (
 			<div>
-				<h1 className="text-center">Get Weather</h1>
+				<h1 className="text-center page-title">Get Weather</h1>
 				<WeatherForm
 					onSearch={this.handleSearch}
 				/>
