@@ -12,7 +12,7 @@ module.exports = {
 				throw new Error(res.data.message);
 			} else {
 				console.log(res.data);
-				return res.data.main.temp;
+				return res.data;
 			}
 		}, function(res) {
 			throw new Error(res.data.message);
