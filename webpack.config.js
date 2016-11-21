@@ -4,7 +4,24 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
 
 module.exports = {
-	entry: './app/app.jsx',
+	entry: [
+		'script!jquery/dist/jquery.min.js',
+		'script!foundation-sites/dist/foundation.min.js',
+		'./app/app.jsx'
+	],
+	externals: {
+		jquery: 'jQuery'
+	},
+	plugins: [
+		new webpack.ProvidePlugin({
+			'$': 'jquery',
+			'jQuery': 'jquery'
+		}),
+		new webpack.DefinePlugin({
+			NODE_ENV: JSON.stringify(NODE_ENV),
+			LANG: JSON.stringify('en')
+		})
+	],
 	output: {
 		path: __dirname,
 		filename: './public/bundle.js'
@@ -28,12 +45,6 @@ module.exports = {
 		aggregateTimeout: 100
 	},
 	devtool: NODE_ENV == 'development' ? 'inline-source-map' : null,
-	plugins: [
-		new webpack.DefinePlugin({
-			NODE_ENV: JSON.stringify(NODE_ENV),
-			LANG: JSON.stringify('en')
-		})
-	],
 	module: {
 		loaders: [
 			{
